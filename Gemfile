@@ -24,10 +24,17 @@ end
 group :test do
   gem 'rails-controller-testing'
   gem 'guard-rspec'
+  gem 'faraday'
+  gem 'jquery-rails'
+  gem "webmock"
 end
 
 group :production do
   gem 'pg', '~> 1.5'
+  gem 'faraday'
+  gem 'web-console'
+  gem 'jquery-rails'
+  gem "webmock"
 end
 
 # Required for timezone support on Linux (Gradescope)
