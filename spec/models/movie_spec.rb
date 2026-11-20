@@ -1,0 +1,13 @@
+require 'rails_helper'
+
+describe Movie do
+  describe 'searching TMDB by keyword' do
+    it 'calls Faraday gem with NYU domain' do
+      expect(Faraday).to receive(:get).and_call_original
+      Movie.find_in_tmdb({ title: 'hacker', language: 'en' })
+    end
+    it 'calls TMDb with valid API key' do
+        Movie.find_in_tmdb({title: "hacker", language: "en"})
+    end
+  end
+end
