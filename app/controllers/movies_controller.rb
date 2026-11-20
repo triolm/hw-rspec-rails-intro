@@ -46,6 +46,11 @@ class MoviesController < ApplicationController
   end
 
   def search_tmdb
+    if (params[:title].presence or params[:release_year].presence or params[:language].presence) and not (params[:title].presence and params[:release_year].presence and params[:language].presence)
+      flash.now[:danger] = 'Please fill in all required fields!'
+      return
+    end
+
     @movies = Movie.find_in_tmdb(
       title: params[:title],
       release_year: params[:release_year],
